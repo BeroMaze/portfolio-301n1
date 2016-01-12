@@ -1,7 +1,7 @@
 #mainView{
-  width: 80%;
-  height: 400px;
-  border: solid;
+  width: 90%;
+  height: auto;
+  /*border: solid;*/
   margin-top: 70px;
   display: flex;
   flex-direction: column;
@@ -12,26 +12,29 @@
   text-align: center;
   -webkit-align-items: center;
   align-items: center;
+  color: white;
 }
 
 #iconView{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   display: -webkit-flex;
   -webkit-flex-direction: row;
-  -webkit-justify-content: space-between;
+  -webkit-justify-content: center;
   text-align: center;
   -webkit-align-items: center;
   align-items: center;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
+
 .articles{
-  width: 175px;
+  width: 200px;
   height: 225px;
-  /*border: solid;*/
+  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,6 +44,12 @@
   text-align: center;
   -webkit-align-items: center;
   align-items: center;
+  margin: 20px;
+  background-color: rgba(16, 51, 111, 0.95);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+  color: white;
 }
 
 .projectIcon{
@@ -49,4 +58,49 @@
 }
 .descIcon{
   font-size: .7em;
+}
+
+a{
+  color: white;
+}
+
+#projectTitle{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+#projectDesc{
+  font-family: 'Old Standard TT', serif;
+  font-size: 1.4em
+}
+
+.FullViewTitle{
+  font-size: 4em;
+  font-family: 'Permanent Marker', cursive;
+  margin: 0px;
+
+}
+
+.fullViewImg{
+  width: 700px;
+  height: 800px;
+}
+
+.fullViewDesc{
+  font-family: 'Old Standard TT', serif;
+  font-size: 1.5em;
+}
+
+.fullViewLink{
+  font-size: 2em;
+  font-family: 'Fredericka the Great', cursive;
+  margin: 10px;
+}
+
+.created{
+  font-size: 1em;
+  font-style: italic;
+  font-family: 'Fredericka the Great', cursive;
 }

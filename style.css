@@ -3,9 +3,10 @@ body{
   width: 97%;
   height: auto;
   min-height: 800px;
-  min-width: 500px;
+  min-width: 660px;
 }
 header {
+  margin-top: 20px;
   width: 100%;
   height: 100px;
   border: solid;
@@ -56,6 +57,7 @@ main{
   height: auto;
   min-height: 800px;
   border: solid;
+  background-color: rgb(22, 1, 64);
 }
 nav{
   display: flex;
@@ -68,7 +70,7 @@ nav{
   border-top: none;
   align-items: center;
   border-radius: 0 0 70px 70px;
-  background-color: rgba(16, 51, 111, 0.82);
+  background-color: rgba(16, 51, 111, 0.95);
 }
 .navButtons{
   margin: auto 0;
@@ -81,6 +83,7 @@ nav{
   width: 75px;
   height: 75px;
   border-radius: 18.75px;
+  cursor: pointer;
 }
 
 .navImgTitle{
@@ -107,5 +110,177 @@ footer{
   width: 100%;
   height: 100px;
   border: solid;
+  border-radius: 0 0 20px 20px;
   border-top: none;
+  margin-bottom: 20px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  background-color: green;
+}
+#mainTop{
+  width: 100%;
+  height: 200px;
+  /*border: solid;*/
+}
+#mainTitle{
+  font-size: 3em;
+  font-family: 'Permanent Marker', cursive;
+}
+#mainMiddle{
+  width: 100%;
+  height: 800px;
+  /*border: solid;*/
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.middleLeft{
+  font-family: 'Old Standard TT', serif;
+  font-size: .8em;
+  width: 30%;
+  height: 95%;
+  /*border: solid;*/
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.middleCenter{
+  font-family: 'Old Standard TT', serif;
+  font-size: .8em;
+  width: 40%;
+  height: 95%;
+  /*border: solid;*/
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+#coreyImg{
+  margin-top: 20px;
+  width: 60%;
+  height: auto;
+  border: 20px solid rgb(57, 43, 32);
+  border-radius: 20px;
+}
+#plac{
+  padding-top: 15px;
+  font-size: 2.5em;
+  border: 7px solid black;
+  background-color: rgb(133, 123, 0);
+  width: 260px;
+  height: 60px;
+  color: black;
+  font-family: 'Rochester', cursive;
+  margin: 0;
+  margin-top: 10px;
+
+}
+.middleRight{
+  font-family: 'Old Standard TT', serif;
+  margin-bottom: 15px;
+  font-size: .8em;
+  width: 30%;
+  height: 95%;
+  /*border: solid;*/
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -webkit-flex-direction: column;
+}
+.overFlow{
+  flex-direction: column;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+.mainWords{
+  font-size: 1.7em;
+  margin: 30px;
+}
+
+#mainBottom{
+  font-family: 'Old Standard TT', serif;
+  margin-bottom: 15px;
+  overflow-y: scroll;
+  font-size: .8em;
+  width: 100%;
+  height: 200px;
+  /*border: solid;*/
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+#created{
+  margin-left: 40px;
+  font-size: 1.2em;
+  -webkit-align-self: flex-start;
+}
+
+.BottomIcons{
+  width: 87px;
+  height: 87px;
+  /*border-radius: 30px;*/
+  margin-left: 15px;
+  margin-right: 20px;
+}
+#socialBall{
+  margin-right: 40px;
+}
+#socialBar{
+  width: 80%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  height: 100px;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.expand{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 90px;
+  overflow-y: scroll;
+}
+
+#leftFoot{
+  width: 20%;
+}
+.addBottom{
+  width: 90px;
+  height: 90px;
+}
+.addTop{
+  width: 77px;
+  height: 77px;
+}
+.addMain{
+  box-shadow: 10px 10px 5px grey;
 }
