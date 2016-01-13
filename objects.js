@@ -7,7 +7,7 @@ var projects = [
     link:         'http://beromaze.github.io/whalepants/',
     miniDesc:     'Website for Burning Man Camp',
     description:  '<p>Whalephants is a project that my goup worked on. We built a website for a orginization that builds a camp out at Burning Man each year. This website is for people to come check out what the camp is about and what all they bring to the community. There are many different pages; About page, drink Voting page, Countdown page, Game Page, and a thank you page.</p> <p>Head over to the Whalephants website and vote on the next drinks that they will be making out at Burning Man or go over and play the Hang Man game. There are three words, see if you can guess all of them.</p>'
-    },
+  },
   {
     id:           'two',
     title:        'Kitten Voting Contest',

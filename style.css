@@ -18,6 +18,9 @@ header {
   display: -webkit-flex;
   -webkit-flex-direction: row;
   -webkit-justify-content: center;
+  display: -moz-flex;
+  -moz-flex-direction: row;
+  -moz-justify-content: center;
   background-image: url('./img/lake.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,20 +41,27 @@ h1{
     height: 100px;
     display: flex;
     display: -webkit-flex;
+    display: -moz-flex;
     align-items: center;
     -webkit-align-items: center;
     -webkit-flex-direction: row;
+    -moz-align-items: center;
+    -moz-flex-direction: row;
     flex-direction: row;
     -webkit-justify-content: center;
+    -moz-justify-content: center;
     justify-content: center;
 }
 
 main{
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   align-items: center;
   -webkit-align-items: center;
   -webkit-flex-direction: column;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
   flex-direction: column;
   width: 100%;
   height: auto;
@@ -62,8 +72,10 @@ main{
 nav{
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: space-around;
   -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
   width: 600px;
   height:100px;
   border: solid;
@@ -104,6 +116,8 @@ nav{
   height: 150px;
   border-radius: 80px;
   border: solid;
+  position: relative;
+  z-index: 1;
 }
 
 footer{
@@ -115,12 +129,16 @@ footer{
   margin-bottom: 20px;
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   align-items: center;
   -webkit-align-items: center;
   -webkit-flex-direction: row;
+  -moz-align-items: center;
+  -moz-flex-direction: row;
   flex-direction: row;
   justify-content: flex-start;
   -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
   background-color: green;
 }
 #mainTop{
@@ -138,9 +156,12 @@ footer{
   /*border: solid;*/
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   align-items: center;
   -webkit-align-items: center;
   -webkit-flex-direction: row;
+  -moz-align-items: center;
+  -moz-flex-direction: row;
   flex-direction: row;
 }
 .middleLeft{
@@ -151,9 +172,12 @@ footer{
   /*border: solid;*/
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: flex-start;
   -webkit-justify-content: flex-start;
   -webkit-flex-direction: column;
+  -moz-justify-content: flex-start;
+  -moz-flex-direction: column;
   flex-direction: column;
 }
 .middleCenter{
@@ -163,9 +187,12 @@ footer{
   height: 95%;
   /*border: solid;*/
   display: -webkit-flex;
+  display: -moz-flex;
   align-items: center;
   -webkit-align-items: center;
   -webkit-flex-direction: column;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
   flex-direction: column;
 }
 #coreyImg{
@@ -197,9 +224,12 @@ footer{
   /*border: solid;*/
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: flex-start;
   -webkit-justify-content: flex-start;
   -webkit-flex-direction: column;
+  -moz-justify-content: flex-start;
+  -moz-flex-direction: column;
 }
 .overFlow{
   flex-direction: column;
@@ -222,9 +252,12 @@ footer{
   /*border: solid;*/
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: space-around;
   -webkit-justify-content: space-around;
   -webkit-flex-direction: column;
+  -moz-justify-content: space-around;
+  -moz-flex-direction: column;
   flex-direction: column;
 }
 
@@ -232,12 +265,12 @@ footer{
   margin-left: 40px;
   font-size: 1.2em;
   -webkit-align-self: flex-start;
+  -moz-align-self: flex-start;
 }
 
 .BottomIcons{
   width: 87px;
   height: 87px;
-  /*border-radius: 30px;*/
   margin-left: 15px;
   margin-right: 20px;
 }
@@ -248,22 +281,30 @@ footer{
   width: 80%;
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: flex-start;
   -webkit-justify-content: flex-start;
   -webkit-flex-direction: row;
+  -moz-justify-content: flex-start;
+  -moz-flex-direction: row;
   flex-direction: row;
   height: 100px;
   -webkit-align-items: center;
+  -moz-align-items: center;
   align-items: center;
 }
 .expand{
   display: flex;
   display: -webkit-flex;
+  display: -moz-flex;
   justify-content: space-between;
   -webkit-justify-content: space-between;
   -webkit-flex-direction: row;
+  -moz-justify-content: space-between;
+  -moz-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 100%;
   height: 90px;
