@@ -1,4 +1,4 @@
-$('.expand').slideToggle();
+// $('.expand').slideToggle();
 
 $('#logoTop').on('click', function() {
   $('nav').slideToggle('slow');
@@ -76,8 +76,18 @@ var pickArticles = function(){
   });
 };
 
+// $('#socialBall').on('click', function(event) {
+//   $('.expand').slideToggle();
+// });
 $('#socialBall').on('click', function(event) {
-  $('.expand').slideToggle();
+  var width = $('.expand').css('width');
+  console.log(width);
+  if (width === '0px') {
+  $('.expand').animate({width: '1000px'}, 3000);
+  }
+  else{
+    $('.expand').animate({width: '0px'}, 3000);
+  }
 });
 
 $('.hoverBottom').hover(function(){
