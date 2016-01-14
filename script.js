@@ -57,8 +57,19 @@ $('#proImg').on('click', function(event) {
 $('#homeImg').on('click', function(event) {
   $('.navImg').not('#'+$(this).attr('id')).css('opacity', '.3');
   setTimeout(function(){
-    
+    $('main').css({
+      'background-image': 'none',
+      'background-color': 'rgb(22, 1, 64)',
+    });
+    $('#mainView').html('<script id="mainScript" type="text/x-handlebars-template"><div id="mainTop"><h2 id="mainTitle">{{title}}</h2></div><div id="mainMiddle"><div class="middleLeft"><div class="overFlow"><p class="mainWords">{{desc1}}</p></div><div class="overFlow"><p class="mainWords">{{desc2}}</p></div></div><div class="middleCenter"><img src="./img/corey.jpg" id="coreyImg" /><h4 id="plac">{{name}}</h4></div><div class="middleRight"><div class="overFlow"><p class="mainWords">{{desc3}}</p></div><div class="overFlow"><p class="mainWords">{{desc4}}</p></div></div></div><div id="mainBottom"><p class="mainWords">{{desc5}}</p></div></div></script>');
+    var template = $('#mainScript').html();
+    var compiledTemplate = Handlebars.compile(template);
+    var html = compiledTemplate(homePage);
+    $('#mainView').append(html);
   }, 200);
+  setTimeout(function(){
+    $('.navImg').not('#'+$(this).attr('id')).css('opacity', '1');
+  }, 300);
 });
 
 var count = 1;
@@ -96,29 +107,21 @@ var iconsToPage = function(){
 var pickArticles = function(){
   $('.articles').on('click', function() {
     $pick = this.id;
-    console.log($pick);
     $('.articles').not('#'+$pick).css('opacity', '.3');
     setTimeout(function(){
-      $('#mainView').html('');
+      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href={{link}} class="fullViewLink">Check Out The Site! </a><img src= {{img}} class="fullViewImg"/><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Created: {{publishedOn}} days ago</p4></script>');
       $('main').css({
         'background-image': 'none',
         'background-color': 'rgb(54, 14, 64)',
       });
-
-      projects.forEach(function(w){
-        var date = parseInt((new Date() - new Date(w.publishedOn))/60/60/24/1000);
-        if($pick === w.id){
-          $('#mainView').html('<h1 class="FullViewTitle">' + w.title + '</h1><a href=' + w.link + ' class="fullViewLink">Check Out The Site! </a><img src=' + w.img + ' class="fullViewImg"/><p3 class="fullViewDesc">' + w.description + '</p3><p4 class="created">Created: ' + date + ' days ago</p4>');
-        }
-      });
-    }, 500);
-
+      var appTemplate = $('#hello').html();
+      var compiledTemplate = Handlebars.compile(appTemplate);
+      var html = compiledTemplate(projects[$pick]);
+      $('#mainView').append(html);
+    }, 300);
   });
 };
 
-// $('#socialBall').on('click', function(event) {
-//   $('.expand').slideToggle();
-// });
 $('#socialBall').on('click', function(event) {
   var width = $('.expand').css('width');
   $('#socialBall').toggleClass('spin3');
