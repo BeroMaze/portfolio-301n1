@@ -1,31 +1,66 @@
-// $('.expand').slideToggle();
-
+var spin2Start = true;
 $('#logoTop').on('click', function() {
-  $('nav').slideToggle('slow');
+  var opacity = $('.navImg').css('opacity');
+  $('.navImg').toggleClass('spin');
+  if(spin2Start === false){
+    $('.navImg').toggleClass('spin2');
+  }
+  spin2Start = false;
+  if (opacity === '1') {
+    $('.navImg').animate({opacity: 0}, 500);
+  }
+  else {
+    $('.navImg').animate({opacity: 1}, 500);
+  }
+  setTimeout(function(){
+    $('nav').slideToggle('slow');
+  }, 200);
 });
 
-$("#githubImg").on('click', function(event) {
-  window.open('https://github.com/BeroMaze', '_blank');
+$('#githubImg').on('click', function(event) {
+  $('.navImg').not('#'+$(this).attr('id')).css('opacity', '.3');
+  setTimeout(function(){
+    window.open('https://github.com/BeroMaze', '_blank');
+  }, 200);
+  setTimeout(function(){
+    $('.navImg').not('#'+$(this).attr('id')).css('opacity', '1');
+  }, 300);
 });
 
-$("#linkedInImg").on('click', function(event) {
-  window.open('https://www.linkedin.com/in/coreyberning', '_blank');
+$('#linkedInImg').on('click', function(event) {
+  $('.navImg').not('#'+$(this).attr('id')).css('opacity', '.3');
+  setTimeout(function(){
+    window.open('https://www.linkedin.com/in/coreyberning', '_blank');
+  }, 200);
+  setTimeout(function(){
+    $('.navImg').not('#'+$(this).attr('id')).css('opacity', '1');
+  }, 300);
 });
 
-$("#proImg").on('click', function(event) {
-  $('#mainView').html('<div id="iconView"></div>');
-  $('main').css({
-    'background-image': 'url("./img/iconPageBackground.jpg")',
-    'background-repeat': 'no-repeat',
-    'background-size': 'cover'});
-  $('#mainView').prepend('<h2 id="projectTitle">Programing Project</h2><p id="projectDesc">Take a look trough all the different projects that I have done since I have Started Programing.</p>');
-  iconsToPage();
-  pickArticles();
+$('#proImg').on('click', function(event) {
+  $('.navImg').not('#'+$(this).attr('id')).css('opacity', '.3');
+  setTimeout(function(){
+    $('#mainView').html('<div id="iconView"></div>');
+    $('main').css({
+      'background-image': 'url("./img/iconPageBackground.jpg")',
+      'background-repeat': 'no-repeat',
+      'background-size': 'cover'});
+    $('#mainView').prepend('<h2 id="projectTitle">Programing Project</h2><p id="projectDesc">Take a look trough all the different projects that I have done since I have Started Programing.</p>');
+    iconsToPage();
+    pickArticles();
+  }, 200);
+  setTimeout(function(){
+    $('.navImg').not('#'+$(this).attr('id')).css('opacity', '1');
+  }, 300);
 });
 
-$("#homeImg").on('click', function(event) {
-  window.open('./index.html', '_self');
+$('#homeImg').on('click', function(event) {
+  $('.navImg').not('#'+$(this).attr('id')).css('opacity', '.3');
+  setTimeout(function(){
+    
+  }, 200);
 });
+
 var count = 1;
 var index = 0;
 var allProjects = [];
@@ -42,7 +77,7 @@ var Projects = function(id, title, img, link, publishedOn, miniDesc, description
 };
 
 projects.map(function(count, index){
-  count = new Projects(projects[index].id, projects[index].title, projects[index].img, projects[index].link,  projects[index].publishedOn, projects[index].miniDesc);
+  count = new Projects(projects[index].id, projects[index].title, projects[index].img, projects[index].link, projects[index].publishedOn, projects[index].miniDesc);
   count += 1;
   index += 1;
 });
@@ -60,19 +95,24 @@ var iconsToPage = function(){
 
 var pickArticles = function(){
   $('.articles').on('click', function() {
-    $('#mainView').html('');
-    $('main').css({
-      'background-image': 'none',
-      'background-color': 'rgb(54, 14, 64)',
-    });
-    var $pick = this.id;
+    $pick = this.id;
+    console.log($pick);
+    $('.articles').not('#'+$pick).css('opacity', '.3');
+    setTimeout(function(){
+      $('#mainView').html('');
+      $('main').css({
+        'background-image': 'none',
+        'background-color': 'rgb(54, 14, 64)',
+      });
 
-    projects.forEach(function(w){
-      var date = parseInt((new Date() - new Date(w.publishedOn))/60/60/24/1000);
-      if($pick === w.id){
-        $('#mainView').html('<h1 class="FullViewTitle">' +  w.title + '</h1><a href=' + w.link + ' class="fullViewLink">Check Out The Site! </a><img src=' + w.img + ' class="fullViewImg"/><p3 class="fullViewDesc">' + w.description + '</p3><p4 class="created">Created: ' + date + ' days ago</p4>');
-      };
-    });
+      projects.forEach(function(w){
+        var date = parseInt((new Date() - new Date(w.publishedOn))/60/60/24/1000);
+        if($pick === w.id){
+          $('#mainView').html('<h1 class="FullViewTitle">' + w.title + '</h1><a href=' + w.link + ' class="fullViewLink">Check Out The Site! </a><img src=' + w.img + ' class="fullViewImg"/><p3 class="fullViewDesc">' + w.description + '</p3><p4 class="created">Created: ' + date + ' days ago</p4>');
+        }
+      });
+    }, 500);
+
   });
 };
 
@@ -81,9 +121,9 @@ var pickArticles = function(){
 // });
 $('#socialBall').on('click', function(event) {
   var width = $('.expand').css('width');
-  console.log(width);
+  $('#socialBall').toggleClass('spin3');
   if (width === '0px') {
-  $('.expand').animate({width: '1000px'}, 3000);
+    $('.expand').animate({width: '1000px'}, 3000);
   }
   else{
     $('.expand').animate({width: '0px'}, 3000);
