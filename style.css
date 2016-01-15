@@ -332,6 +332,10 @@ footer{
   margin-left: -40px;
 }
 
+select{
+  width: 200px;
+}
+
 .spin {
   -webkit-animation: spin 200ms linear 1;
   -moz-animation: spin 200ms linear 1;
