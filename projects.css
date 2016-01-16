@@ -1,7 +1,6 @@
 #mainView{
   width: 90%;
   height: auto;
-  /*border: solid;*/
   margin-top: 70px;
   display: flex;
   flex-direction: column;

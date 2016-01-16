@@ -45,7 +45,7 @@ $('#proImg').on('click', function(event) {
       'background-image': 'url("./img/iconPageBackground.jpg")',
       'background-repeat': 'no-repeat',
       'background-size': 'cover'});
-    $('#mainView').prepend('<h2 id="projectTitle">Programing Project</h2><select id="catagoryFilter"><option value="catagory">catagory</option></select><p id="projectDesc">Take a look trough all the different projects that I have done since I have Started Programing.</p>');
+    $('#mainView').prepend('<h2 id="projectTitle">Programming Project</h2><select id="catagoryFilter"><option value="catagory">catagory</option></select><p id="projectDesc">Take a look trough all the different projects that I have done since I have Started Programing.</p>');
     iconsToPage();
     pickArticles();
     var newArrayC = projects.map(function(p){
