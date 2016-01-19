@@ -3,7 +3,7 @@ var projects = [
     id:           0,
     catagory:     'Website',
     title:        'Whalephants Final Project',
-    img:          './img/github.png',
+    img:          './img/whalephants.png',
     publishedOn:  '12/5/2015',
     link:         'http://beromaze.github.io/whalepants/',
     miniDesc:     'Website for Burning Man Camp',
