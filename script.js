@@ -127,9 +127,9 @@ projects.map(function(count, index){
 });
 
 var iconsToPage = function(){
-  $('#iconView').append('<script id="miniIconView" type="text/template"><article id="{{id}}" class="articles" value="{{catagory}}" ><img class="projectIcon" src="{{img}}" /><h3 class="iconTilte">{{title}}</h3><p class="publishedOn">Created:{{publishedOn}}</p><p class="descIcon">{{miniDesc}}</p><a href="{{link}} class="descIcon">See Finished site.</a></article></script>');
-  var appTemplate = $('#miniIconView').html();
-  var compiledTemplate = Handlebars.compile(appTemplate);
+  $('#iconView').append('<script id="miniIconView" type="text/template"><article id="{{id}}" class="articles" value="{{catagory}}" ><img class="projectIcon" src="{{img}}" /><h3 class="iconTilte">{{title}}</h3><p class="publishedOn">Created:  {{{publishedOn}}}</p><p class="descIcon">{{miniDesc}}</p><a href="{{link}} class="descIcon">See Finished site.</a></article></script>');
+  var template = $('#miniIconView').html();
+  var compiledTemplate = Handlebars.compile(template);
   projects.forEach(function(all){
     var html = compiledTemplate(all);
     $('#iconView').append(html);
