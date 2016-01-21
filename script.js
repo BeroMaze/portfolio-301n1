@@ -126,14 +126,13 @@ projects.map(function(count, index){
   index += 1;
 });
 
-Projects.prototype.html = function () {
-  var date = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
-  $('#iconView').append('<article id=' + this.id + ' class="articles" value="' + this.catagory + '"><img class="projectIcon"src=' + this.img + '/><h3 class="iconTilte">' + this.title + '</h3><p class="publishedOn">Created: ' + date + ' days ago</p><p class="descIcon">' + this.miniDesc + '</p><a href=' + this.link + 'class="descIcon">See Finished site.</a></article>');
-};
-
 var iconsToPage = function(){
-  allProjects.forEach(function(i) {
-    i.html();
+  $('#iconView').append('<script id="miniIconView" type="text/template"><article id="{{id}}" class="articles" value="{{catagory}}" ><img class="projectIcon" src="{{img}}" /><h3 class="iconTilte">{{title}}</h3><p class="publishedOn">Created:  {{{publishedOn}}}</p><p class="descIcon">{{miniDesc}}</p><a href="{{link}} class="descIcon">See Finished site.</a></article></script>');
+  var template = $('#miniIconView').html();
+  var compiledTemplate = Handlebars.compile(template);
+  projects.forEach(function(all){
+    var html = compiledTemplate(all);
+    $('#iconView').append(html);
   });
 };
 
@@ -142,7 +141,7 @@ var pickArticles = function(){
     $pick = this.id;
     $('.articles').not('#'+$pick).css('opacity', '.3');
     setTimeout(function(){
-      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href={{link}} class="fullViewLink">Check Out The Site! </a><img src= {{img}} class="fullViewImg"/><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Created on: {{publishedOn}} </p4></script>');
+      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href="{{link}}" class="fullViewLink">Check Out The Site!</a><img src="{{img}}" class="fullViewImg"/><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Created on: {{publishedOn}} </p4></script>');
       $('main').css({
         'background-image': 'none',
         'background-color': 'rgb(54, 14, 64)',
