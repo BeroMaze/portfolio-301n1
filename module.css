@@ -167,6 +167,10 @@ a{
   background-color: white;
   font-size: 2em;
   color: black;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  text-align: left;
 }
 #topCode{
   width: auto;

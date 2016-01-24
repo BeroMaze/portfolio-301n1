@@ -162,8 +162,8 @@ var showCode = function(){
     $pickId = $(this).attr('id');
     console.log($pickId);
     $('.code').show();
-    $('.code').html('<div id="topCode"><button id="javascript">JavaScript</button><button id="css">CSS</button><button id="html">HTML</button></div><div id="bottomCode"></div>');
-    $('#bottomCode').html('<div><pre><code class="javascript">' + jsCodeArray[$pickId].code.toString() + '</code></pre></div>');
+    // $('.code').html('<div id="topCode"><button id="javascript">JavaScript</button><button id="css">CSS</button><button id="html">HTML</button></div><div id="bottomCode"></div>');
+    $('.code').html('<div><pre><code class="javascript">' + jsCodeArray[$pickId].code.toString() + '</code></pre></div>');
     $(document).ready(function() {
       $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
@@ -182,7 +182,7 @@ var showCode = function(){
   });
 };
 var showPic = function(){
-  $('#bottomCode').on('click', function() {
+  $('.code').on('click', function() {
     event.preventDefault();
     $('.code').hide();
     $('.fullViewImg').show();
