@@ -159,12 +159,12 @@ var pickArticles = function(){
     $pick = this.id;
     $('.articles').not('#'+$pick).css('opacity', '.3');
     setTimeout(function(){
-      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href="{{link}}" class="fullViewLink">Check Out The Site!</a><div id="flip"><img src="{{img}}" id="{{id}}" class="fullViewImg"/><div class="code"></div></div><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Published {{daysAgo}} days ago</p4></script>');
+      $('#mainView').html('<script id="fullTemplate" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href="{{link}}" class="fullViewLink">Check Out The Site!</a><div id="flip"><img src="{{img}}" id="{{id}}" class="fullViewImg"/><div class="code"></div></div><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Published {{daysAgo}} days ago</p4></script>');
       $('main').css({
         'background-image': 'none',
         'background-color': 'rgb(54, 14, 64)',
       });
-      var template = $('#hello').html();
+      var template = $('#fullTemplate').html();
       var compiledTemplate = Handlebars.compile(template);
       var html = compiledTemplate(allProjects[$pick]);
       $('#mainView').append(html);
