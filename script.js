@@ -117,20 +117,38 @@ var Projects = function(id, catagory, title, img, link, publishedOn, miniDesc, d
   this.publishedOn = publishedOn;
   this.miniDesc = miniDesc;
   this.description = description;
-  allProjects.push(this);
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
 };
 
-projects.map(function(count, index){
-  count = new Projects(projects[index].id, projects[index].catagory, projects[index].title, projects[index].img, projects[index].link, projects[index].publishedOn, projects[index].miniDesc);
-  count += 1;
-  index += 1;
-});
+var loadAll = function(data){
+  data.sort(function(a, b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
+  allProjects = data.map(function(count, index){
+    return count = new Projects(data[index].id, data[index].catagory, data[index].title, data[index].img, data[index].link, data[index].publishedOn, data[index].miniDesc, projects[index].description, data[index].daysAgo);
+    index += 1;
+    count += 1;
+  });
+};
+
+var fetchLocal = function(){
+  if (localStorage.data){
+    loadAll(JSON.parse(localStorage.data));
+  }
+  else {
+    $.getJSON('./articles.json', function(data) {
+      loadAll(data);
+      localStorage.data = JSON.stringify(data);
+    });
+  }
+};
+fetchLocal();
 
 var iconsToPage = function(){
-  $('#iconView').append('<script id="miniIconView" type="text/template"><article id="{{id}}" class="articles" value="{{catagory}}" ><img class="projectIcon" src="{{img}}" /><h3 class="iconTilte">{{title}}</h3><p class="publishedOn">Published {{{publishedOn}}} days ago</p><p class="descIcon">{{miniDesc}}</p><a href="{{link}}" class="descIcon">See Finished site.</a></article></script>');
+  $('#iconView').append('<script id="miniIconView" type="text/template"><article id="{{id}}" class="articles" value="{{catagory}}" ><img class="projectIcon" src="{{img}}" /><h3 class="iconTilte">{{title}}</h3><p class="publishedOn">Published {{daysAgo}} days ago</p><p class="descIcon">{{miniDesc}}</p><a href="{{link}}" class="descIcon">See Finished site.</a></article></script>');
   var template = $('#miniIconView').html();
   var compiledTemplate = Handlebars.compile(template);
-  projects.forEach(function(all){
+  allProjects.forEach(function(all){
     var html = compiledTemplate(all);
     $('#iconView').append(html);
   });
@@ -141,14 +159,14 @@ var pickArticles = function(){
     $pick = this.id;
     $('.articles').not('#'+$pick).css('opacity', '.3');
     setTimeout(function(){
-      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href="{{link}}" class="fullViewLink">Check Out The Site!</a><div id="flip"><img src="{{img}}" id="{{id}}" class="fullViewImg"/><div class="code"></div></div><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Published {{publishedOn}} days ago</p4></script>');
+      $('#mainView').html('<script id="hello" type="text/template"><h1 class="FullViewTitle">{{title}}</h1><a href="{{link}}" class="fullViewLink">Check Out The Site!</a><div id="flip"><img src="{{img}}" id="{{id}}" class="fullViewImg"/><div class="code"></div></div><p3 class="fullViewDesc"> {{description}} </p3><p4 class="created">Published {{daysAgo}} days ago</p4></script>');
       $('main').css({
         'background-image': 'none',
         'background-color': 'rgb(54, 14, 64)',
       });
       var template = $('#hello').html();
       var compiledTemplate = Handlebars.compile(template);
-      var html = compiledTemplate(projects[$pick]);
+      var html = compiledTemplate(allProjects[$pick]);
       $('#mainView').append(html);
       $('.code').hide();
       showCode();
