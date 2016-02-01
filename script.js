@@ -1,6 +1,6 @@
 (function(module){
   var script = {};
-  
+
   var spin2Start = true;
   $('#logoTop').on('click', function() {
     var opacity = $('.navImg').css('opacity');
